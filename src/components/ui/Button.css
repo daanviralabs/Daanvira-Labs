@@ -1,0 +1,94 @@
+/* Button — pill CTA with hover lift */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 15px 30px;
+  border-radius: 999px;
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  line-height: 1;
+  white-space: nowrap;
+  transition:
+    transform 0.35s var(--ease),
+    box-shadow 0.35s var(--ease),
+    background-color 0.35s var(--ease),
+    color 0.35s var(--ease),
+    border-color 0.35s var(--ease);
+}
+
+.btn__icon {
+  flex-shrink: 0;
+  transition: transform 0.35s var(--ease);
+}
+
+.btn:hover .btn__icon {
+  transform: translateX(4px);
+}
+
+/* -- primary: solid gold gradient ---------------------------------------- */
+.btn--primary {
+  background: var(--gradient-brand);
+  background-size: 160% 160%;
+  color: #ffffff;
+  box-shadow: var(--shadow-sm);
+}
+
+.btn--primary:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-glow);
+  background-position: 100% 50%;
+}
+
+/* -- secondary: deep gold outline ----------------------------------------- */
+.btn--secondary {
+  background: transparent;
+  color: var(--primary-deep);
+  border: 1.5px solid var(--primary);
+}
+
+.btn--secondary:hover {
+  transform: translateY(-3px);
+  background: rgba(249, 115, 98, 0.08);
+  box-shadow: var(--shadow-sm);
+}
+
+/* -- ghost: borderless, text-only ----------------------------------------- */
+.btn--ghost {
+  background: transparent;
+  color: var(--accent);
+  padding-inline: 18px;
+}
+
+.btn--ghost:hover {
+  color: var(--primary-deep);
+  background: rgba(249, 115, 98, 0.08);
+}
+
+/* -- outline-dark: near-black outline -------------------------------------- */
+.btn--outline-dark {
+  background: transparent;
+  color: var(--accent);
+  border: 1.5px solid var(--accent);
+}
+
+.btn--outline-dark:hover {
+  transform: translateY(-3px);
+  background: var(--accent);
+  color: #ffffff;
+  box-shadow: var(--shadow-md);
+}
+
+.btn:active {
+  transform: translateY(-1px);
+}
+
+/* Full-width CTAs on small screens */
+@media (max-width: 520px) {
+  .btn {
+    width: 100%;
+  }
+}

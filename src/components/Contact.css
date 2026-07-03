@@ -1,0 +1,118 @@
+.contact__grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(16px, 2vw, 24px);
+}
+
+.contact__card {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 6px;
+  background: var(--background);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 28px 24px;
+  box-shadow: var(--shadow-sm);
+  transition:
+    transform 0.45s var(--ease),
+    box-shadow 0.45s var(--ease),
+    border-color 0.45s var(--ease),
+    opacity 0.8s var(--ease);
+}
+
+a.contact__card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(239, 68, 68, 0.4);
+  box-shadow: var(--shadow-glow);
+}
+
+/* Primary (email) card gets extra prominence */
+.contact__card--primary {
+  border-color: rgba(239, 68, 68, 0.45);
+  background:
+    linear-gradient(var(--background), var(--background)) padding-box,
+    var(--gradient-brand) border-box;
+  border: 1.5px solid transparent;
+  box-shadow: var(--shadow-md);
+}
+
+.contact__chip {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  border-radius: var(--radius-sm);
+  background: var(--gradient-brand);
+  color: #ffffff;
+  margin-bottom: 10px;
+}
+
+.contact__card-label {
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.contact__card-value {
+  font-size: 0.98rem;
+  font-weight: 600;
+  color: var(--accent);
+  word-break: break-word;
+}
+
+.contact__card--primary .contact__card-value {
+  color: var(--primary-deep);
+}
+
+/* -- map ------------------------------------------------------------------- */
+.contact__map {
+  margin-top: clamp(32px, 4vw, 48px);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  border: 1px solid var(--line);
+  box-shadow: var(--shadow-md);
+}
+
+.contact__map iframe {
+  width: 100%;
+  height: clamp(280px, 40vw, 420px);
+  border: 0;
+}
+
+/* -- closing CTA -------------------------------------------------------------- */
+.contact__closing {
+  margin-top: clamp(48px, 6vw, 72px);
+  text-align: center;
+  background: var(--background);
+  border: 1px solid rgba(239, 68, 68, 0.28);
+  border-radius: var(--radius-lg);
+  padding: clamp(36px, 5vw, 60px);
+  box-shadow: var(--shadow-md);
+}
+
+.contact__closing-title {
+  font-size: clamp(1.5rem, 2.6vw, 2.1rem);
+}
+
+.contact__closing-text {
+  max-width: 480px;
+  margin: 14px auto 28px;
+  color: var(--muted);
+}
+
+/* -- breakpoints ---------------------------------------------------------------- */
+@media (max-width: 1024px) {
+  .contact__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 600px) {
+  .contact__grid {
+    grid-template-columns: 1fr;
+  }
+}

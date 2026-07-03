@@ -1,0 +1,142 @@
+.footer {
+  background: var(--dark);
+  color: rgba(255, 255, 255, 0.72);
+  padding: clamp(56px, 7vw, 90px) 0 32px;
+}
+
+.footer__grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.4fr) minmax(0, 0.8fr) minmax(0, 1fr);
+  gap: clamp(36px, 5vw, 72px);
+}
+
+/* -- brand ------------------------------------------------------------------- */
+.footer__brand-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.footer__logo {
+  width: 48px;
+  height: 48px;
+}
+
+.footer__wordmark {
+  font-family: var(--font-heading);
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: var(--secondary);
+}
+
+.footer__blurb {
+  margin-top: 18px;
+  max-width: 380px;
+  font-size: 0.94rem;
+  line-height: 1.7;
+}
+
+.footer__socials {
+  display: flex;
+  gap: 12px;
+  margin-top: 24px;
+}
+
+.footer__social {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  border: 1px solid rgba(249, 115, 98, 0.35);
+  color: var(--secondary);
+  transition:
+    background-color 0.35s var(--ease),
+    color 0.35s var(--ease),
+    transform 0.35s var(--ease);
+}
+
+.footer__social:hover {
+  background: var(--gradient-brand);
+  color: #ffffff;
+  transform: translateY(-3px);
+}
+
+/* -- link columns ---------------------------------------------------------------- */
+.footer__col-title {
+  font-family: var(--font-body);
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #ffffff;
+  margin-bottom: 20px;
+}
+
+.footer__links {
+  display: grid;
+  gap: 12px;
+}
+
+.footer__link {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.93rem;
+  color: rgba(255, 255, 255, 0.72);
+  transition: color 0.3s var(--ease);
+}
+
+.footer__link:hover {
+  color: var(--secondary);
+}
+
+.footer__link--gold {
+  color: var(--secondary);
+  font-weight: 600;
+}
+
+.footer__link--static:hover {
+  color: rgba(255, 255, 255, 0.72); /* not a link — no hover change */
+}
+
+/* -- bottom bar --------------------------------------------------------------------- */
+.footer__bottom {
+  margin-top: clamp(44px, 6vw, 64px);
+  padding-top: 26px;
+  border-top: 1px solid rgba(249, 115, 98, 0.16);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+  font-size: 0.84rem;
+  color: rgba(255, 255, 255, 0.45);
+}
+
+.footer__tagline {
+  font-style: italic;
+}
+
+/* -- breakpoints --------------------------------------------------------------------- */
+@media (max-width: 920px) {
+  .footer__grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .footer__brand {
+    grid-column: 1 / -1;
+  }
+}
+
+@media (max-width: 520px) {
+  .footer__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .footer__bottom {
+    flex-direction: column;
+    text-align: center;
+  }
+}

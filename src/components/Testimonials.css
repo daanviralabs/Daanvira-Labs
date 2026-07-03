@@ -1,0 +1,81 @@
+.testimonials__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: clamp(18px, 2.4vw, 28px);
+}
+
+.testimonials__card {
+  display: flex;
+  flex-direction: column;
+  background: var(--background);
+  border: 1px solid rgba(239, 68, 68, 0.18);
+  border-radius: var(--radius);
+  padding: 32px 28px;
+  box-shadow: var(--shadow-sm);
+  transition:
+    transform 0.45s var(--ease),
+    box-shadow 0.45s var(--ease),
+    opacity 0.8s var(--ease);
+}
+
+.testimonials__card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-md);
+}
+
+/* Gold, filled stars (CSS fill wins over the SVG's fill="none" attribute) */
+.testimonials__stars {
+  display: flex;
+  gap: 4px;
+  color: var(--secondary);
+  margin-bottom: 18px;
+}
+
+.testimonials__stars .icon--star {
+  fill: currentColor;
+}
+
+.testimonials__quote {
+  font-size: 0.98rem;
+  line-height: 1.75;
+  color: var(--body);
+  flex: 1;
+}
+
+.testimonials__person {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-top: 24px;
+  padding-top: 20px;
+  border-top: 1px solid var(--line);
+}
+
+.testimonials__avatar {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  background: var(--gradient-brand);
+  color: #ffffff;
+  font-weight: 700;
+  font-size: 0.9rem;
+  letter-spacing: 0.04em;
+  flex-shrink: 0;
+}
+
+.testimonials__name {
+  font-weight: 700;
+  font-size: 0.95rem;
+  color: var(--accent);
+}
+
+@media (max-width: 920px) {
+  .testimonials__grid {
+    grid-template-columns: 1fr;
+    max-width: 560px;
+    margin-inline: auto;
+  }
+}

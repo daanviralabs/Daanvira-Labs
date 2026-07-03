@@ -1,0 +1,308 @@
+/* ==========================================================================
+   DAANVIRA LABS — GLOBAL DESIGN SYSTEM
+   Tokens · reset · typography · helpers · reveal animations · keyframes
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. Design tokens
+   -------------------------------------------------------------------------- */
+:root {
+  /* Palette — light, modern, coral-on-slate (fintech/dev-tool aesthetic) */
+  --primary: #ef4444;        /* coral red */
+  --primary-deep: #dc2626;
+  --secondary: #f97362;      /* warm coral-orange */
+  --accent: #1e293b;         /* dark slate, sparing contrast */
+  --background: #ffffff;
+  --surface: #f8f9fb;        /* cool off-white */
+  --dark: #0f1524;           /* footer only */
+  --body: #475569;
+  --muted: #94a3b8;
+  --line: #e6e9ef;
+
+  /* Gradients */
+  --gradient-brand: linear-gradient(135deg, #ef4444 0%, #f97362 100%);
+  --gradient-hero: radial-gradient(ellipse 80% 60% at 50% 32%, #fef1f0 0%, #ffffff 72%);
+  --gradient-soft: linear-gradient(180deg, #ffffff 0%, rgba(239, 68, 68, 0.04) 100%);
+
+  /* Shadows — soft, layered, neutral + one coral glow */
+  --shadow-sm: 0 1px 2px rgba(15, 23, 42, 0.05), 0 2px 8px rgba(15, 23, 42, 0.04);
+  --shadow-md: 0 2px 4px rgba(15, 23, 42, 0.04), 0 10px 24px rgba(15, 23, 42, 0.07);
+  --shadow-lg: 0 4px 8px rgba(15, 23, 42, 0.04), 0 24px 56px rgba(15, 23, 42, 0.11);
+  --shadow-glow: 0 12px 36px rgba(239, 68, 68, 0.22);
+
+  /* Radii */
+  --radius-sm: 12px;
+  --radius: 20px;
+  --radius-lg: 28px;
+  --radius-xl: 40px;
+
+  /* Type */
+  --font-heading: "Playfair Display", Georgia, "Times New Roman", serif;
+  --font-body: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+
+  /* Motion & layout */
+  --ease: cubic-bezier(0.22, 1, 0.36, 1);
+  --container: 1240px;
+  --nav-height: 76px;
+}
+
+/* --------------------------------------------------------------------------
+   2. Reset & base
+   -------------------------------------------------------------------------- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: calc(var(--nav-height) + 16px);
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  font-family: var(--font-body);
+  font-size: 1rem;
+  line-height: 1.7;
+  color: var(--body);
+  background: var(--background);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  overflow-x: hidden;
+}
+
+img,
+svg,
+video,
+iframe {
+  display: block;
+  max-width: 100%;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  font: inherit;
+  color: inherit;
+  background: none;
+  border: 0;
+  cursor: pointer;
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  line-height: 1.12;
+  letter-spacing: -0.02em;
+  color: var(--accent);
+}
+
+/* Visible keyboard focus everywhere */
+:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+/* Coral selection */
+::selection {
+  background: var(--secondary);
+  color: #ffffff;
+}
+
+/* Styled scrollbar (WebKit + Firefox) */
+html {
+  scrollbar-color: #f3a89e #f4f5f7;
+  scrollbar-width: thin;
+}
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: #f4f5f7;
+}
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #f97362, #ef4444);
+  border-radius: 8px;
+  border: 2px solid #f4f5f7;
+}
+
+/* --------------------------------------------------------------------------
+   3. Layout helpers
+   -------------------------------------------------------------------------- */
+.container {
+  width: 100%;
+  max-width: var(--container);
+  margin-inline: auto;
+  padding-inline: clamp(20px, 4vw, 40px);
+}
+
+.section {
+  padding: clamp(72px, 9vw, 130px) 0;
+}
+
+.section--tint {
+  background: var(--surface);
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+
+/* Coral pill chip used above headings */
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 7px 16px;
+  border-radius: 999px;
+  border: 1px solid rgba(239, 68, 68, 0.24);
+  background: rgba(239, 68, 68, 0.07);
+  color: var(--primary-deep);
+  font-family: var(--font-body);
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.text-gradient {
+  background: var(--gradient-brand);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+
+/* Counter suffix (e.g. "+", "%") — rendered in the body font (not the
+   display serif) at a smaller size, so it never fights the digits for
+   space or gets misdrawn by the heading font's swash glyphs. */
+.counter__suffix {
+  display: inline-block;
+  margin-left: 0.1em;
+  font-family: var(--font-body);
+  font-size: 0.55em;
+  font-weight: 700;
+  vertical-align: 0.42em;
+}
+
+/* Screen-reader-only text */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* --------------------------------------------------------------------------
+   4. Reveal-on-scroll system (driven by useReveal + one IntersectionObserver)
+   -------------------------------------------------------------------------- */
+.reveal {
+  opacity: 0;
+  transform: translateY(36px);
+  transition:
+    opacity 0.8s var(--ease),
+    transform 0.8s var(--ease);
+  will-change: opacity, transform;
+}
+
+.reveal--left {
+  transform: translateX(-44px);
+}
+
+.reveal--right {
+  transform: translateX(44px);
+}
+
+.reveal--scale {
+  transform: scale(0.92);
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+/* --------------------------------------------------------------------------
+   5. Keyframes
+   -------------------------------------------------------------------------- */
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-14px);
+  }
+}
+
+@keyframes floatSlow {
+  0%,
+  100% {
+    transform: translate(0, 0);
+  }
+  50% {
+    transform: translate(10px, -22px);
+  }
+}
+
+@keyframes gradientShift {
+  0%,
+  100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+@keyframes pulseRing {
+  0% {
+    transform: scale(1);
+    opacity: 0.55;
+  }
+  80%,
+  100% {
+    transform: scale(1.65);
+    opacity: 0;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   6. Reduced motion — kill animation, show everything immediately
+   -------------------------------------------------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  html {
+    scroll-behavior: auto;
+  }
+
+  .reveal {
+    opacity: 1;
+    transform: none;
+  }
+}

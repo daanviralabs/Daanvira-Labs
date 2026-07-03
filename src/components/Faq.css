@@ -1,0 +1,165 @@
+.faq__container {
+  max-width: 860px;
+}
+
+.faq__list {
+  display: grid;
+  gap: 14px;
+}
+
+.faq__item {
+  background: var(--background);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  transition:
+    border-color 0.4s var(--ease),
+    box-shadow 0.4s var(--ease),
+    opacity 0.8s var(--ease),
+    transform 0.8s var(--ease);
+}
+
+.faq__item--open {
+  border-color: rgba(239, 68, 68, 0.4);
+  box-shadow: var(--shadow-sm);
+}
+
+.faq__heading {
+  margin: 0;
+}
+
+.faq__question {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  text-align: left;
+  padding: 20px 24px;
+  font-family: var(--font-body);
+  font-size: 1.02rem;
+  font-weight: 600;
+  color: var(--accent);
+  transition: color 0.3s var(--ease);
+}
+
+.faq__question:hover {
+  color: var(--primary-deep);
+}
+
+/* Rotating plus icon built from two bars */
+.faq__plus {
+  position: relative;
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+  transition: transform 0.45s var(--ease);
+}
+
+.faq__plus::before,
+.faq__plus::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  margin: auto;
+  background: var(--primary);
+  border-radius: 2px;
+}
+
+.faq__plus::before {
+  width: 100%;
+  height: 2px;
+}
+
+.faq__plus::after {
+  width: 2px;
+  height: 100%;
+}
+
+.faq__item--open .faq__plus {
+  transform: rotate(135deg);
+}
+
+/* Animated collapse — max-height set inline from the measured panel */
+.faq__panel {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.55s var(--ease);
+}
+
+.faq__answer {
+  padding: 0 24px 22px;
+  font-size: 0.95rem;
+  color: var(--muted);
+}
+
+/* Numbered steps — one after another, not run together in a paragraph */
+.faq__answer--steps {
+  display: grid;
+  gap: 12px;
+  counter-reset: faq-step;
+}
+
+.faq__answer--steps li {
+  position: relative;
+  padding-left: 34px;
+}
+
+.faq__answer--steps li::before {
+  counter-increment: faq-step;
+  content: counter(faq-step);
+  position: absolute;
+  left: 0;
+  top: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: var(--gradient-brand);
+  color: #ffffff;
+  font-size: 0.72rem;
+  font-weight: 700;
+}
+
+/* Numbered steps — one after another, not run together in a paragraph */
+.faq__answer--steps {
+  display: grid;
+  gap: 12px;
+  counter-reset: faq-step;
+}
+
+.faq__answer--steps li {
+  position: relative;
+  padding-left: 34px;
+}
+
+.faq__answer--steps li::before {
+  counter-increment: faq-step;
+  content: counter(faq-step);
+  position: absolute;
+  left: 0;
+  top: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: var(--gradient-brand);
+  color: #ffffff;
+  font-size: 0.72rem;
+  font-weight: 700;
+}
+
+@media (max-width: 600px) {
+  .faq__question {
+    font-size: 0.96rem;
+    padding: 18px 18px;
+  }
+
+  .faq__answer {
+    padding: 0 18px 18px;
+  }
+}
