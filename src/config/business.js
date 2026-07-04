@@ -19,7 +19,7 @@ export const business = {
   // [PLACEHOLDER] — replace with your real street address (leave "" to hide the map)
   address: "[Street Address], Colombo, Sri Lanka",
 
-  phone: "076 926 176",
+  phone: "+94 76 926 176",
   phoneHref: "tel:+9476926176",
 
   // [PLACEHOLDER] — WhatsApp number in international format WITHOUT "+" or spaces.
@@ -353,7 +353,7 @@ export const contact = {
     {
       icon: "phone",
       label: "Call us",
-      value: "076 926 176",
+      value: "+94 76 926 176",
       href: "tel:+9476926176",
     },
     {
