@@ -29,8 +29,10 @@ export const business = {
 
   email: "daanviralabs@gmail.com",
 
-  // Crest logo. Drop your real artwork at /public/logo.png and change this to "/logo.png".
-  logo: "/logo.svg",
+  // Crest logo. Drop your real artwork at /public/logo.png and change "logo.svg" to "logo.png".
+  // BASE_URL (not a hardcoded "/") so this still resolves correctly when the
+  // site is deployed under a sub-path, e.g. GitHub Pages' /Daanvira-Labs/.
+  logo: `${import.meta.env.BASE_URL}logo.svg`,
   logoAlt: "Daanvira Labs crest — gold shield with sunburst and D monogram",
 };
 
