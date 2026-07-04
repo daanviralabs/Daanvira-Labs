@@ -32,6 +32,7 @@ export default function Services() {
                   icon={item.icon}
                   title={item.title}
                   description={item.description}
+                  image={item.image}
                   delay={(i % 5) * 70}
                 />
               ))}

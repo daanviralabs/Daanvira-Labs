@@ -3,12 +3,51 @@
   background: var(--background);
   border: 1px solid var(--line);
   border-radius: var(--radius);
-  padding: 30px 26px;
+  overflow: hidden; /* clip the photo header to the card's rounded corners */
   box-shadow: var(--shadow-sm);
   transition:
     transform 0.45s var(--ease),
     box-shadow 0.45s var(--ease),
     opacity 0.8s var(--ease); /* keep .reveal opacity transition */
+}
+
+/* -- photo header ----------------------------------------------------------- */
+.service-card__media {
+  position: relative;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  background: var(--surface);
+}
+
+.service-card__image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s var(--ease);
+}
+
+.service-card:hover .service-card__image {
+  transform: scale(1.06);
+}
+
+/* Soft gradient wash so the icon chip stays legible over any photo */
+.service-card__media::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, transparent 55%, rgba(15, 23, 42, 0.35) 100%);
+}
+
+.service-card__body {
+  position: relative;
+  padding: 30px 26px;
+}
+
+/* Cards without a photo keep the chip in normal flow; cards with one
+   float it up so it overlaps the photo/body seam. */
+.service-card__media + .service-card__body .service-card__chip {
+  margin-top: -46px;
+  border: 3px solid var(--background);
 }
 
 /* Gold gradient border, revealed on hover via an overlay ring */
