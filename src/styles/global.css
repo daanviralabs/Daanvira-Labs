@@ -126,7 +126,7 @@ h4 {
 
 /* Styled scrollbar (WebKit + Firefox) */
 html {
-  scrollbar-color: #f3a89e #f4f5f7;
+  scrollbar-color: #fbb87e #f4f5f7;
   scrollbar-width: thin;
 }
 ::-webkit-scrollbar {
@@ -136,7 +136,7 @@ html {
   background: #f4f5f7;
 }
 ::-webkit-scrollbar-thumb {
-  background: linear-gradient(180deg, #f97362, #ef4444);
+  background: linear-gradient(180deg, #fb923c, #f97316);
   border-radius: 8px;
   border: 2px solid #f4f5f7;
 }
@@ -161,15 +161,15 @@ html {
   border-bottom: 1px solid var(--line);
 }
 
-/* Coral pill chip used above headings */
+/* Orange pill chip used above headings */
 .eyebrow {
   display: inline-flex;
   align-items: center;
   gap: 8px;
   padding: 7px 16px;
   border-radius: 999px;
-  border: 1px solid rgba(239, 68, 68, 0.24);
-  background: rgba(239, 68, 68, 0.07);
+  border: 1px solid rgba(249, 115, 22, 0.24);
+  background: rgba(249, 115, 22, 0.07);
   color: var(--primary-deep);
   font-family: var(--font-body);
   font-size: 0.78rem;
