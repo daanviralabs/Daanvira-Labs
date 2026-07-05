@@ -8,17 +8,6 @@
   overflow: hidden;
 }
 
-.hero::after {
-  /* light scrim behind the copy column only, so the video reads clearly
-     everywhere else while the headline/subtitle stay legible */
-  content: "";
-  position: absolute;
-  inset: 0;
-  z-index: 1;
-  background: linear-gradient(90deg, rgba(255, 255, 255, 0.82) 0%, rgba(255, 255, 255, 0.55) 45%, transparent 68%);
-  pointer-events: none;
-}
-
 /* -- background video --------------------------------------------------------- */
 .hero__video {
   position: absolute;
@@ -90,7 +79,8 @@
   margin-top: 24px;
   max-width: 560px;
   font-size: clamp(1.02rem, 1.5vw, 1.18rem);
-  color: var(--muted);
+  font-weight: 700;
+  color: var(--accent);
 }
 
 .hero__ctas {
