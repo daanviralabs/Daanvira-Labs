@@ -87,7 +87,7 @@
   margin-top: 24px;
   max-width: 560px;
   font-size: clamp(1.02rem, 1.5vw, 1.18rem);
-  color: var(--muted);
+  color: #000000;
 }
 
 .hero__ctas {
