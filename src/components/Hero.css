@@ -128,7 +128,19 @@
   height: 10px;
   border-radius: 4px;
   background: var(--primary);
-  animation: float 1.8s ease-in-out infinite;
+  animation: scrollDot 1.8s ease-in-out infinite;
+}
+
+/* Small-range bounce that stays inside the scroll-cue pill (unlike the
+   shared .float keyframe, whose -14px travel pushed the dot out the top) */
+@keyframes scrollDot {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(14px);
+  }
 }
 
 /* -- breakpoints --------------------------------------------------------------------- */
