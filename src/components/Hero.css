@@ -67,6 +67,14 @@
 
 .hero__copy {
   max-width: 640px;
+  width: fit-content;
+  padding: clamp(24px, 3vw, 36px) clamp(28px, 3.5vw, 44px);
+  border-radius: var(--radius-lg);
+  /* Light scrim hugging just the text, not a full-bleed overlay — keeps
+     the headline/subtitle legible over busy parts of the video without
+     hiding the footage everywhere else. No blur: the video stays sharp
+     behind the panel, just dimmed by the white tint. */
+  background: rgba(255, 255, 255, 0.72);
 }
 
 /* -- copy ------------------------------------------------------------------------ */
@@ -79,8 +87,7 @@
   margin-top: 24px;
   max-width: 560px;
   font-size: clamp(1.02rem, 1.5vw, 1.18rem);
-  font-weight: 700;
-  color: var(--accent);
+  color: var(--muted);
 }
 
 .hero__ctas {
