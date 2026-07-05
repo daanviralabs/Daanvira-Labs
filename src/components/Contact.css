@@ -23,13 +23,13 @@
 
 a.contact__card:hover {
   transform: translateY(-6px);
-  border-color: rgba(239, 68, 68, 0.4);
+  border-color: rgba(249, 115, 22, 0.4);
   box-shadow: var(--shadow-glow);
 }
 
 /* Primary (email) card gets extra prominence */
 .contact__card--primary {
-  border-color: rgba(239, 68, 68, 0.45);
+  border-color: rgba(249, 115, 22, 0.45);
   background:
     linear-gradient(var(--background), var(--background)) padding-box,
     var(--gradient-brand) border-box;
@@ -88,7 +88,7 @@ a.contact__card:hover {
   margin-top: clamp(48px, 6vw, 72px);
   text-align: center;
   background: var(--background);
-  border: 1px solid rgba(239, 68, 68, 0.28);
+  border: 1px solid rgba(249, 115, 22, 0.28);
   border-radius: var(--radius-lg);
   padding: clamp(36px, 5vw, 60px);
   box-shadow: var(--shadow-md);

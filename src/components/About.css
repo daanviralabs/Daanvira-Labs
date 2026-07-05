@@ -10,38 +10,78 @@
   position: relative;
 }
 
-.about__frame {
+/* Wrapper sizes to the card so the floating stat card anchors to its
+   edges, not the (wider) grid column .about__visual sits in. */
+.about__card-wrap {
   position: relative;
-  border-radius: var(--radius-xl);
-  background:
-    radial-gradient(circle at 30% 20%, rgba(249, 115, 98, 0.14), transparent 60%),
-    var(--background);
-  border: 1px solid var(--line);
-  box-shadow: var(--shadow-md);
-  padding: clamp(48px, 7vw, 80px);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
+  width: min(380px, 100%);
+  margin-inline: auto;
 }
 
-.about__frame-glow {
-  position: absolute;
-  inset: auto -60px -60px auto;
-  width: 260px;
-  height: 260px;
-  border-radius: 50%;
-  background: rgba(249, 115, 98, 0.16);
-  filter: blur(60px);
+/* Frosted glass card — crest, capability rows, badge */
+.about__card {
+  position: relative;
+  padding: clamp(30px, 4vw, 42px);
+  /* extra bottom room so the floating stat card overhangs empty space,
+     not the last capability row */
+  padding-bottom: clamp(56px, 7vw, 74px);
+  border-radius: var(--radius-lg);
+  /* Opacity alone already reads as glass if backdrop-filter isn't
+     supported/composited; blur is a progressive enhancement on top. */
+  background: rgba(255, 255, 255, 0.82);
+  backdrop-filter: blur(28px) saturate(160%);
+  -webkit-backdrop-filter: blur(28px) saturate(160%);
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  box-shadow: var(--shadow-lg), inset 0 1px 0 rgba(255, 255, 255, 0.5);
+  text-align: center;
+  animation: float 7s ease-in-out infinite;
 }
 
 .about__crest {
-  position: relative;
-  width: clamp(160px, 20vw, 220px);
+  width: clamp(110px, 12vw, 150px);
   height: auto;
+  margin-inline: auto;
+  /* clears the absolutely-positioned badge pinned to the card's top edge */
+  margin-top: 28px;
 }
 
-/* Gold pill badge pinned to the frame */
+.about__card-heading {
+  font-family: var(--font-heading);
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--accent);
+  margin-top: 20px;
+}
+
+.about__card-rows {
+  margin-top: 20px;
+  display: grid;
+  gap: 12px;
+  text-align: left;
+}
+
+.about__card-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 0.92rem;
+  font-weight: 500;
+  color: var(--body);
+}
+
+.about__card-chip {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 10px;
+  background: var(--gradient-brand);
+  color: #ffffff;
+  flex-shrink: 0;
+}
+
+/* Gold pill badge, pinned to the card */
 .about__badge {
   position: absolute;
   top: 22px;
@@ -60,7 +100,7 @@
 .about__stat-card {
   position: absolute;
   bottom: -26px;
-  right: clamp(-10px, -1vw, 24px);
+  right: -24px;
   display: flex;
   flex-direction: column;
   padding: 20px 26px;
@@ -68,7 +108,7 @@
   background: rgba(255, 255, 255, 0.85);
   backdrop-filter: blur(14px);
   -webkit-backdrop-filter: blur(14px);
-  border: 1px solid rgba(239, 68, 68, 0.25);
+  border: 1px solid rgba(249, 115, 22, 0.25);
   box-shadow: var(--shadow-lg);
   animation: float 6s ease-in-out infinite;
 }

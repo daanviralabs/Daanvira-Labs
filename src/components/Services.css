@@ -21,13 +21,13 @@
   flex: 1;
   max-width: 160px;
   height: 1px;
-  background: linear-gradient(90deg, transparent, rgba(239, 68, 68, 0.4), transparent);
+  background: linear-gradient(90deg, transparent, rgba(249, 115, 22, 0.4), transparent);
 }
 
 .services__grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
-  gap: clamp(18px, 2.4vw, 28px);
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: clamp(20px, 2.6vw, 32px);
 }
 
 @media (max-width: 600px) {

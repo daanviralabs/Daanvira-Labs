@@ -5,9 +5,9 @@ import Counter from "./ui/Counter";
 import "./About.css";
 
 /**
- * About — two columns: crest graphic in a rounded frame with a floating
- * glass stat card + gold pill badge, and the story copy with a gold
- * checklist and CTAs.
+ * About — two columns: glass crest card (crest, capability rows, badge)
+ * with a floating stat card, and the story copy with a gold checklist
+ * and CTAs.
  */
 export default function About() {
   return (
@@ -15,25 +15,39 @@ export default function About() {
       <div className="container about__inner">
         {/* Visual side */}
         <div className="about__visual reveal reveal--left">
-          <div className="about__frame">
-            <span className="about__frame-glow" aria-hidden="true" />
-            <img
-              src={business.logo}
-              alt={business.logoAlt}
-              className="about__crest"
-              width="220"
-              height="220"
-              loading="lazy"
-            />
-            <span className="about__badge">{about.badge}</span>
-          </div>
+          <div className="about__card-wrap">
+            <div className="about__card">
+              <img
+                src={business.logo}
+                alt={business.logoAlt}
+                className="about__crest"
+                width="150"
+                height="150"
+                loading="lazy"
+              />
+              <p className="about__card-heading">{about.card.heading}</p>
 
-          {/* Floating glass stat card */}
-          <div className="about__stat-card">
-            <strong className="about__stat-value">
-              <Counter value={about.statCard.value} suffix={about.statCard.suffix} />
-            </strong>
-            <span className="about__stat-label">{about.statCard.label}</span>
+              <ul className="about__card-rows">
+                {about.card.rows.map((row) => (
+                  <li key={row.text} className="about__card-row">
+                    <span className="about__card-chip" aria-hidden="true">
+                      <Icon name={row.icon} size={16} />
+                    </span>
+                    {row.text}
+                  </li>
+                ))}
+              </ul>
+
+              <span className="about__badge">{about.badge}</span>
+            </div>
+
+            {/* Floating glass stat card */}
+            <div className="about__stat-card">
+              <strong className="about__stat-value">
+                <Counter value={about.statCard.value} suffix={about.statCard.suffix} />
+              </strong>
+              <span className="about__stat-label">{about.statCard.label}</span>
+            </div>
           </div>
         </div>
 

@@ -52,7 +52,7 @@
 
 .btn--secondary:hover {
   transform: translateY(-3px);
-  background: rgba(249, 115, 98, 0.08);
+  background: rgba(251, 146, 60, 0.08);
   box-shadow: var(--shadow-sm);
 }
 
@@ -65,7 +65,7 @@
 
 .btn--ghost:hover {
   color: var(--primary-deep);
-  background: rgba(249, 115, 98, 0.08);
+  background: rgba(251, 146, 60, 0.08);
 }
 
 /* -- outline-dark: near-black outline -------------------------------------- */

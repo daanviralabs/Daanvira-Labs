@@ -60,18 +60,6 @@ export const hero = {
     "Daanvira Labs is a Colombo-based agency that engineers high-performance digital products — then markets them with the same rigor. One partner from first commit to first customer.",
   primaryCta: { label: "Get a Free Consultation", href: "#contact", icon: "arrow-right" },
   secondaryCta: { label: "View Our Work", href: "#work" },
-
-  // The floating glass card on the right side of the hero.
-  card: {
-    heading: "One team. Full stack.",
-    rows: [
-      { icon: "code", text: "Web · Apps · Systems" },
-      { icon: "chart", text: "SEO · Ads · Content" },
-      { icon: "palette", text: "Brand · Video · Design" },
-    ],
-    // [PLACEHOLDER] mini stat shown at the bottom of the card
-    stat: { value: "40+", label: "projects shipped & growing" },
-  },
   scrollCueLabel: "Scroll to explore",
 };
 
@@ -85,6 +73,10 @@ export const trustBar = [
   { icon: "users", text: "Direct founder access" },
   { icon: "chart", text: "Data-driven growth" },
 ];
+
+/* Builds a public/ image URL for a service, resolving correctly whether
+   the site is served from "/" (local dev) or a sub-path (GitHub Pages). */
+const serviceImage = (filename) => `${import.meta.env.BASE_URL}${encodeURIComponent(filename)}`;
 
 /* --------------------------------------------------------------------------
    5. SERVICES — two labeled groups rendered as separate grids
@@ -102,26 +94,31 @@ export const services = {
           icon: "globe",
           title: "Website Development",
           description: "Custom, responsive, high-performance websites built to convert visitors into customers.",
+          image: serviceImage("Website Development.jpg"),
         },
         {
           icon: "app",
           title: "Mobile App Development",
           description: "Native and cross-platform apps with polished UX, shipped to the App Store and Play Store.",
+          image: serviceImage("Mobile App Development.png"),
         },
         {
           icon: "code",
           title: "Custom Software Solutions",
           description: "Bespoke tools built around your workflow — dashboards, portals, internal systems.",
+          image: serviceImage("Custom Software Solutions.jpg"),
         },
         {
           icon: "gears",
           title: "System Development",
           description: "Backend systems, third-party integrations and infrastructure that scale with you.",
+          image: serviceImage("System Development.jpg"),
         },
         {
           icon: "rocket",
           title: "Full-Spectrum Development",
           description: "From MVP to scale — architecture, build, QA and long-term maintenance in one engagement.",
+          image: serviceImage("Full-Spectrum Development.jpg"),
         },
       ],
     },
@@ -132,51 +129,61 @@ export const services = {
           icon: "chart",
           title: "SEO",
           description: "Technical SEO, on-page optimization and local SEO that puts you in front of buyers.",
+          image: serviceImage("SEO.jpg"),
         },
         {
           icon: "megaphone",
           title: "Social Media Management",
           description: "Always-on social presence with a content strategy tuned to your audience.",
+          image: serviceImage("Social Media Management.png"),
         },
         {
           icon: "target",
           title: "Paid Ads Management",
           description: "Meta and Google Ads campaigns managed for ROI, not vanity metrics.",
+          image: serviceImage("Paid Ads Management.png"),
         },
         {
           icon: "pen",
           title: "Content Marketing",
           description: "Blogs, LinkedIn thought-leadership and short-form video that build authority.",
+          image: serviceImage("Content Marketing.png"),
         },
         {
           icon: "mail",
           title: "Email Marketing & Automation",
           description: "Sequences, newsletters and lifecycle automation that nurture leads on autopilot.",
+          image: serviceImage("Email Marketing_Automation.png"),
         },
         {
           icon: "palette",
           title: "Branding & Visual Identity",
           description: "Logos, palettes and brand systems that make you instantly recognizable.",
+          image: serviceImage("Branding_Visual Identity.jpg"),
         },
         {
           icon: "video",
           title: "AI-Powered Video Production",
           description: "Scroll-stopping short-form video produced fast with an AI-assisted pipeline.",
+          image: serviceImage("AI-Powered Video Production.jpg"),
         },
         {
           icon: "image",
           title: "AI Art & Graphic Design",
           description: "On-brand graphics, ad creative and illustrations at the speed of your campaigns.",
+          image: serviceImage("AI_Art_Graphic Design.png"),
         },
         {
           icon: "cursor",
           title: "UI/UX Design",
           description: "Research-backed interfaces that feel effortless and drive measurable conversion.",
+          image: serviceImage("UIUX Design.png"),
         },
         {
           icon: "link",
           title: "Automation & CRM Integration",
           description: "Connect your marketing stack and CRM so every lead is captured and followed up.",
+          image: serviceImage("Automation_CRM Integration.jpg"),
         },
       ],
     },
@@ -202,8 +209,17 @@ export const about = {
   primaryCta: { label: "Get a Free Consultation", href: "#contact", icon: "arrow-right" },
   secondaryCta: { label: "Explore services", href: "#services" },
 
-  // The visual side of the section.
+  // The visual side of the section — glass card with the crest, a quick
+  // capability summary, and a floating stat card.
   badge: "Colombo, Sri Lanka 🇱🇰",
+  card: {
+    heading: "One team. Full stack.",
+    rows: [
+      { icon: "code", text: "Web · Apps · Systems" },
+      { icon: "chart", text: "SEO · Ads · Content" },
+      { icon: "palette", text: "Brand · Video · Design" },
+    ],
+  },
   // [PLACEHOLDER] floating stat card over the graphic
   statCard: { value: 12, suffix: "+", label: "years combined experience" },
 };
