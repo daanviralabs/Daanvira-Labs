@@ -22,9 +22,9 @@ export const business = {
   phone: "+94 76 926 176",
   phoneHref: "tel:+9476926176",
 
-  // [PLACEHOLDER] — WhatsApp number in international format WITHOUT "+" or spaces.
+  // WhatsApp number in international format WITHOUT "+" or spaces.
   // Set to "" to hide the floating WhatsApp button entirely.
-  whatsapp: "94771234567",
+  whatsapp: "9476926176",
   whatsappMessage: "Hi Daanvira Labs! I'd like a free consultation.",
 
   email: "daanviralabs@gmail.com",
